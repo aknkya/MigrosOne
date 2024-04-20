@@ -55,6 +55,6 @@ public class CourierService {
         return courierRepository.findAll().stream()
                 .filter(x->x.getStoreName()!=null)
                 .filter(x->x.getStoreName().equals(courierInfo.getStoreName()))
-                .noneMatch(x->isDifferenceGreaterThanOneMinute(x.getTime(),courierInfo.getTime()));
+                .noneMatch(x->isDifferenceGreaterThanOneMinute(x.getTime(),courierInfo.getTime()) && x.getCourier().equals(courierInfo.getCourier()));
     }
 }
